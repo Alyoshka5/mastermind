@@ -226,7 +226,7 @@ if player == "codemaker"
             end
             puts "Tries left: #{tries}"
         end
-		sleep(0.5)
+		sleep(1)
 	end
 else
     game = CodeBreaker.new
