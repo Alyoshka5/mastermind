@@ -156,6 +156,11 @@ class CodeMaker < Mastermind
         end
         solutions
     end
+
+	def convert_to_code(num)
+		num = [@@valid_colors[num[0].to_i - 1], @@valid_colors[num[1].to_i - 1], @@valid_colors[num[2].to_i - 1], @@valid_colors[num[3].to_i - 1]]
+		num
+	end
 end
 
 puts "Welcome to Mastermind!
@@ -208,7 +213,9 @@ if player == "codemaker"
 
         solutions = game.guess_code(solutions, guess)
         if solutions.length == 1
+			solution = game.convert_to_code(solutions[0])
             puts "\nYou lost!"
+			puts "Deciphered code: #{solution}"
             puts "Computer deciphered code in #{12 - tries + 1} tries"
         else
             tries -= 1
